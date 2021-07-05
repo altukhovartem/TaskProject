@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TaskProject.Models.Task>
+
+<table style="width:100%">
+	<tr>
+		<th>@nameof(TaskProject.Models.Task.Id)</th>
+		<th>@nameof(TaskProject.Models.Task.Type)</th>
+		<th>@nameof(TaskProject.Models.Task.Title)</th>
+		<th>@nameof(TaskProject.Models.Task.CreatedTime)</th>
+	</tr>
+	@foreach (TaskProject.Models.Task task in @Model)
+	{
+		<tr>
+			<td>@task.Id</td>
+			<td>@task.Type.Title</td>
+			<td>@task.Title</td>
+			<td>@task.CreatedTime</td>
+		</tr>
+	}
+</table>

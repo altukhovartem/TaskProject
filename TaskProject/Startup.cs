@@ -18,6 +18,10 @@ namespace TaskProject
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddScoped<ITaskRepository, MockTaskRepository>();
+			services.AddHttpContextAccessor();
+			services.AddSession();
+
+			services.AddControllersWithViews();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,6 +32,8 @@ namespace TaskProject
 				app.UseDeveloperExceptionPage();
 			}
 
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 			app.UseRouting();
 
 			app.UseEndpoints(endpoints =>
