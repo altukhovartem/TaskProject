@@ -10,7 +10,7 @@
 	@foreach (TaskProject.Models.Task task in @Model)
 	{
 		<tr>
-			<td>@task.Id</td>
+			<td><a asp-controller="Task" asp-action="Details" asp-route-id="@task.Id">@task.Id</a></td>
 			<td>@task.Type.Title</td>
 			<td>@task.Title</td>
 			<td>@task.CreatedTime</td>
