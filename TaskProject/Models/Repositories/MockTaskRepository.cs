@@ -25,5 +25,10 @@ namespace TaskProject.Models
 		{
 			return _tasks;
 		}
+
+		public Task GetById(int Id)
+		{
+			return	_tasks.Where(t => t.Id == Id).SingleOrDefault();
+		}
 	}
 }

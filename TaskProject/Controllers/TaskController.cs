@@ -21,5 +21,15 @@ namespace TaskProject.Controllers
 			IEnumerable<Task> tasks = _taskRepository.GetAll();
 			return View(tasks);
 		}
+
+		public IActionResult Details(int id)
+		{
+			Task task = _taskRepository.GetById(id);
+			if(task is null)
+			{
+				return NotFound();
+			}
+			return View(task);
+		}
 	}
 }

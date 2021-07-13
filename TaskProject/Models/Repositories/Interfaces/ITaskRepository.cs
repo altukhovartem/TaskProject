@@ -5,5 +5,6 @@ namespace TaskProject.Models
 	public interface ITaskRepository
 	{
 		IEnumerable<Task> GetAll();
+		Task GetById(int Id);
 	}
 }
