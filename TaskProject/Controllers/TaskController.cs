@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskProject.Models;
+using TaskProject.ViewModels;
 using Task = TaskProject.Models.Task;
 
 namespace TaskProject.Controllers
@@ -11,10 +12,12 @@ namespace TaskProject.Controllers
 	public class TaskController : Controller
 	{
 		private readonly ITaskRepository _taskRepository;
+		private readonly ITaskTypeRepository _taskTypeRepository;
 
-		public TaskController(ITaskRepository taskRepository)
+		public TaskController(ITaskRepository taskRepository, ITaskTypeRepository taskTypeRepository)
 		{
 			this._taskRepository = taskRepository;
+			this._taskTypeRepository = taskTypeRepository;
 		}
 		public IActionResult List()
 		{
@@ -30,6 +33,27 @@ namespace TaskProject.Controllers
 				return NotFound();
 			}
 			return View(task);
+		}
+
+		public IActionResult Create()
+		{
+			var model = new TaskCreateViewModel();
+			model.Task = new Task();
+			model.TaskTypes = _taskTypeRepository.GetAllTitles();
+
+			return View(model);
+		}
+
+		[HttpPost]
+		public IActionResult Create(TaskCreateViewModel viewModel)
+		{
+			Task task = viewModel.Task;
+			if(ModelState.IsValid)
+			{
+				_taskRepository.Create(task);
+			}
+			viewModel.TaskTypes = _taskTypeRepository.GetAllTitles();
+			return View(viewModel);
 		}
 	}
 }

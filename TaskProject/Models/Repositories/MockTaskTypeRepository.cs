@@ -19,5 +19,10 @@ namespace TaskProject.Models
 		{
 			return _types;
 		}
+
+		public IEnumerable<string> GetAllTitles()
+		{
+			return _types.Select(x => x.Title);
+		}
 	}
 }

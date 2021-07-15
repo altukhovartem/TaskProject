@@ -6,5 +6,6 @@ namespace TaskProject.Models
 	{
 		IEnumerable<Task> GetAll();
 		Task GetById(int Id);
+		void Create(Task task);
 	}
 }

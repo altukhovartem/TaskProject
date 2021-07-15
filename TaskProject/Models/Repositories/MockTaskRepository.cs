@@ -6,7 +6,7 @@ namespace TaskProject.Models
 {
 	public class MockTaskRepository: ITaskRepository
 	{
-		private readonly IEnumerable<Task> _tasks;
+		private readonly List<Task> _tasks;
 		private readonly ITaskTypeRepository _taskTypeRepository;
 
 		public MockTaskRepository()
@@ -19,6 +19,12 @@ namespace TaskProject.Models
 				new Task { Id = 3, Title = "Task3", CreatedTime = new DateTime(2003, 3, 3), Type = _taskTypeRepository.GetAll().ToList()[2] },
 				new Task { Id = 4, Title = "Task4", CreatedTime = new DateTime(2004, 4, 4), Type = _taskTypeRepository.GetAll().ToList()[0] },
 			};
+		}
+
+		public void Create(Task task)
+		{
+			task.Id = _tasks.Max(x => x.Id)+1;
+			_tasks.Add(task);
 		}
 
 		public IEnumerable<Task> GetAll()

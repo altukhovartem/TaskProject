@@ -18,6 +18,7 @@ namespace TaskProject
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddScoped<ITaskRepository, MockTaskRepository>();
+			services.AddScoped<ITaskTypeRepository, MockTaskTypeRepository>();
 			services.AddHttpContextAccessor();
 			services.AddSession();
 

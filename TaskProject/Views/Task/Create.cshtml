@@ -1,0 +1,27 @@
+﻿@model TaskProject.ViewModels.TaskCreateViewModel
+
+<form asp-action="Create" method="post" role="form">
+	<h4>Create a new task</h4>
+
+	<div>
+		<label asp-for=@Model.Task.Title></label>
+		<div>
+			<input asp-for=@Model.Task.Title />
+		</div>
+	</div>
+
+	<div>
+		<label asp-for=@Model.Task.Type></label>
+		<div>
+			@Html.DropDownList("Type", new SelectList(Model.TaskTypes), "Select type")
+			@*@Html.DropDownList("user", new SelectList(new string[] { "Tom", "Sam", "Bob", "Alice" }), "Выберите пользователя")*@
+		</div>
+	</div>
+
+	<div >
+		<div>
+			<input type="submit" value="Create" />
+		</div>
+	</div>
+</form>
+

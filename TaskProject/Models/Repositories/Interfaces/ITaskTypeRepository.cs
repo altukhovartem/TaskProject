@@ -5,5 +5,6 @@ namespace TaskProject.Models
 	public interface ITaskTypeRepository
 	{
 		IEnumerable<TaskType> GetAll();
+		IEnumerable<string> GetAllTitles();
 	}
 }
