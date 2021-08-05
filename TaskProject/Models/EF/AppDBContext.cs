@@ -21,9 +21,9 @@ namespace TaskProject.Models.EF
 		{
 			base.OnModelCreating(modelBuilder);
 
-			modelBuilder.Entity<TaskType>().HasData(new TaskType { Id = 1, Title = "Task" });
-			modelBuilder.Entity<TaskType>().HasData(new TaskType { Id = 2, Title = "Bug" });
-			modelBuilder.Entity<TaskType>().HasData(new TaskType { Id = 3, Title = "Change Request" });
+			modelBuilder.Entity<TaskType>().HasData(new TaskType { Id = 1, Name = "Task" });
+			modelBuilder.Entity<TaskType>().HasData(new TaskType { Id = 2, Name = "Bug" });
+			modelBuilder.Entity<TaskType>().HasData(new TaskType { Id = 3, Name = "Change Request" });
 
 			modelBuilder.Entity<Task>().HasData(new Task
 			{

@@ -9,9 +9,9 @@ namespace TaskProject.Models
 	{
 		private List<TaskType> _types = new List<TaskType>
 		{ 
-			new TaskType{Id=1, Title = "Task"},
-			new TaskType{Id=2, Title = "Bug"},
-			new TaskType{Id=3, Title = "ChangeRequest"}
+			new TaskType{Id=1, Name = "Task"},
+			new TaskType{Id=2, Name = "Bug"},
+			new TaskType{Id=3, Name = "ChangeRequest"}
 		};
 
 
@@ -22,7 +22,12 @@ namespace TaskProject.Models
 
 		public IEnumerable<string> GetAllTitles()
 		{
-			return _types.Select(x => x.Title);
+			return _types.Select(x => x.Name);
+		}
+
+		public TaskType GetById(int Id)
+		{
+			return _types.Where(t => t.Id == Id).FirstOrDefault();
 		}
 	}
 }

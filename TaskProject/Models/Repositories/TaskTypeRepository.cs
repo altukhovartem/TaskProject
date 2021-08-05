@@ -21,7 +21,12 @@ namespace TaskProject.Models
 
 		public IEnumerable<string> GetAllTitles()
 		{
-			return context.TaskTypes.Select(tt => tt.Title);
+			return context.TaskTypes.Select(tt => tt.Name);
+		}
+
+		public TaskType GetById(int Id)
+		{
+			return context.TaskTypes.Where(t => t.Id == Id).FirstOrDefault();
 		}
 	}
 }

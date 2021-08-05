@@ -1,19 +1,21 @@
-﻿@model TaskProject.ViewModels.TaskCreateViewModel
+﻿@model TaskProject.Models.Task
 
 <form asp-action="Create" method="post" role="form">
 	<h4>Create a new task</h4>
 
 	<div>
-		<label asp-for=@Model.Task.Title></label>
+		<label asp-for=@Model.Title></label>
 		<div>
-			<input asp-for=@Model.Task.Title />
+			<input asp-for=@Model.Title />
 		</div>
 	</div>
 
 	<div>
-		<label asp-for=@Model.Task.Type></label>
+		<label asp-for=@Model.TypeId></label>
 		<div>
-			@Html.DropDownList("Type", new SelectList(Model.TaskTypes), "Select type")
+			<select asp-for="@Model.TypeId" 
+					asp-items="@(new SelectList(ViewBag.ListOfTaskTypes, "Id", "Name"))">Select type</select>
+			@*@Html.DropDownList("Type", new SelectList(ViewBag.ListOfTaskTypes, "Id", "Name"), "Select type")*@
 			@*@Html.DropDownList("user", new SelectList(new string[] { "Tom", "Sam", "Bob", "Alice" }), "Выберите пользователя")*@
 		</div>
 	</div>

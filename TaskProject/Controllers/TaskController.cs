@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskProject.Models;
-using TaskProject.ViewModels;
 using Task = TaskProject.Models.Task;
 
 namespace TaskProject.Controllers
@@ -37,23 +36,22 @@ namespace TaskProject.Controllers
 
 		public IActionResult Create()
 		{
-			var model = new TaskCreateViewModel();
-			model.Task = new Task();
-			model.TaskTypes = _taskTypeRepository.GetAllTitles();
+			ViewBag.ListOfTaskTypes = _taskTypeRepository.GetAll();
 
-			return View(model);
+			return View();
 		}
 
 		[HttpPost]
-		public IActionResult Create(TaskCreateViewModel viewModel)
+		public IActionResult Create(Task task)
 		{
-			Task task = viewModel.Task;
+			TaskType type = _taskTypeRepository.GetById(task.TypeId);
+			task.Type = type;
 			if(ModelState.IsValid)
 			{
 				_taskRepository.Create(task);
 			}
-			viewModel.TaskTypes = _taskTypeRepository.GetAllTitles();
-			return View(viewModel);
+			ViewBag.ListOfTaskTypes = _taskTypeRepository.GetAll();
+			return View(task);
 		}
 	}
 }

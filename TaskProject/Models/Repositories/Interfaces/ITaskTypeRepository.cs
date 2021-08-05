@@ -6,5 +6,6 @@ namespace TaskProject.Models
 	{
 		IEnumerable<TaskType> GetAll();
 		IEnumerable<string> GetAllTitles();
+		TaskType GetById(int Id);
 	}
 }
