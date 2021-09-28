@@ -29,7 +29,7 @@ namespace TaskProject.Models
 
 		public Task GetById(int Id)
 		{
-			return	context.Tasks.Include(t => t.Type).FirstOrDefault(t => t.Id == Id);
+			return	context.Tasks.FirstOrDefault(t => t.Id == Id);
 		}
 	}
 }

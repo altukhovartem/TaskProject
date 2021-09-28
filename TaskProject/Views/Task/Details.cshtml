@@ -1,8 +1,30 @@
 ﻿@model TaskProject.Models.Task
+	<form asp-controller="Task" asp-action="Details" method="post">
+		<table border="0">
+			<tr>
+				<td class="right">
+					<label asp-for="Id"></label>:
+				</td>
+				<td>
+					<input type="text" asp-for="Id" />
+				</td>
+			</tr>
+			<tr>
+				<td class="right">
+					<label asp-for="Type"></label>:
+				</td>
+				<td>
+					<input type="text" asp-for="Type" />
+				</td>
+			</tr>
+			<tr>
+				<td class="right">
+					<label asp-for="Title"></label>:
+				</td>
+				<td>
+					<input type="text" asp-for="Title" />
+				</td>
+			</tr>
 
-<h2>@Model.Title</h2>
-
-<h3>Id: @Model.Id</h3>
-<h3>Title: @Model.Title</h3>
-<h3>Type: @Model.Type</h3>
-<h3>Created: @Model.CreatedTime</h3>
+		</table>
+	</form>
