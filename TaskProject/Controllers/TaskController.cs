@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,22 +37,26 @@ namespace TaskProject.Controllers
 
 		public IActionResult Create()
 		{
-			ViewBag.ListOfTaskTypes = _taskTypeRepository.GetAll();
-
+			FindAllTasks();
 			return View();
 		}
 
 		[HttpPost]
 		public IActionResult Create(Task task)
 		{
-			TaskType type = _taskTypeRepository.GetById(task.TypeId);
-			task.Type = type;
-			if(ModelState.IsValid)
+			if (ModelState.IsValid)
 			{
 				_taskRepository.Create(task);
 			}
-			ViewBag.ListOfTaskTypes = _taskTypeRepository.GetAll();
+			FindAllTasks();
 			return View(task);
+		}
+
+		private void FindAllTasks()
+		{
+			ViewBag.ListOfTaskTypes = _taskTypeRepository
+							.GetAll()
+							.Select(x => new SelectListItem() { Text = x.Name, Value = x.Name });
 		}
 	}
 }

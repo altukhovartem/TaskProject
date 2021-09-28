@@ -14,10 +14,10 @@ namespace TaskProject.Models
 			_taskTypeRepository = new MockTaskTypeRepository();
 			_tasks = new List<Task>
 			{
-				new Task { Id = 1, Title = "Task1", CreatedTime = new DateTime(2001, 1, 1), Type = _taskTypeRepository.GetAll().ToList()[0] },
-				new Task { Id = 2, Title = "Task2", CreatedTime = new DateTime(2002, 2, 2), Type = _taskTypeRepository.GetAll().ToList()[1] },
-				new Task { Id = 3, Title = "Task3", CreatedTime = new DateTime(2003, 3, 3), Type = _taskTypeRepository.GetAll().ToList()[2] },
-				new Task { Id = 4, Title = "Task4", CreatedTime = new DateTime(2004, 4, 4), Type = _taskTypeRepository.GetAll().ToList()[0] },
+				new Task { Id = 1, Title = "Task1", CreatedTime = new DateTime(2001, 1, 1), Type = _taskTypeRepository.GetAll().ToList()[0].Name },
+				new Task { Id = 2, Title = "Task2", CreatedTime = new DateTime(2002, 2, 2), Type = _taskTypeRepository.GetAll().ToList()[1].Name },
+				new Task { Id = 3, Title = "Task3", CreatedTime = new DateTime(2003, 3, 3), Type = _taskTypeRepository.GetAll().ToList()[2].Name },
+				new Task { Id = 4, Title = "Task4", CreatedTime = new DateTime(2004, 4, 4), Type = _taskTypeRepository.GetAll().ToList()[0].Name },
 			};
 		}
 

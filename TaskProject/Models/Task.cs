@@ -10,8 +10,7 @@ namespace TaskProject.Models
 	{
 		public int Id { get; set; }
 		public string Title { get; set; }
-		public int TypeId { get; set; }
-		public TaskType Type { get; set; }
+		public string Type { get; set; }
 		public DateTime CreatedTime { get; set; }
 	}
 }

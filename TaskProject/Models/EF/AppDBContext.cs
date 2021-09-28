@@ -28,24 +28,22 @@ namespace TaskProject.Models.EF
 			modelBuilder.Entity<Task>().HasData(new Task
 			{
 				Id = 1,
-				Title = "First Task",
-				TypeId = 1,
+				Title = TaskTypes.Where(x=>x.Id == 1).SingleOrDefault().Name,
 				CreatedTime = DateTime.Now
 			});
 
 			modelBuilder.Entity<Task>().HasData(new Task
 			{
 				Id = 2,
-				Title = "Second Task",
-				TypeId = 2,
+				Title = TaskTypes.Where(x => x.Id == 2).SingleOrDefault().Name,
+
 				CreatedTime = DateTime.Now
 			});
 
 			modelBuilder.Entity<Task>().HasData(new Task
 			{
 				Id = 3,
-				Title = "Third Task",
-				TypeId = 3,
+				Title = TaskTypes.Where(x => x.Id == 3).SingleOrDefault().Name,
 				CreatedTime = DateTime.Now
 			});
 		}
