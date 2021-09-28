@@ -28,8 +28,8 @@ namespace TaskProject
 		{
 			services.AddDbContext<AppDBContext>(opt =>
 			opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-			services.AddScoped<ITaskRepository, MockTaskRepository>();
-			services.AddScoped<ITaskTypeRepository, MockTaskTypeRepository>();
+			services.AddScoped<ITaskRepository, TaskRepository>();
+			services.AddScoped<ITaskTypeRepository, TaskTypeRepository>();
 			services.AddHttpContextAccessor();
 			services.AddSession();
 

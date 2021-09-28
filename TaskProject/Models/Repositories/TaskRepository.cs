@@ -24,7 +24,7 @@ namespace TaskProject.Models
 
 		public IEnumerable<Task> GetAll()
 		{
-			return context.Tasks.Include(t => t.Type);
+			return context.Tasks;
 		}
 
 		public Task GetById(int Id)
