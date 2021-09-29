@@ -26,6 +26,11 @@ namespace TaskProject.Models
 			task.Id = _tasks.Max(x => x.Id)+1;
 			_tasks.Add(task);
 		}
+		public void Update(Task task)
+		{
+			Task taskToUpdate = _tasks.Where(t => t.Id == task.Id).FirstOrDefault();
+			taskToUpdate = task;
+		}
 
 		public IEnumerable<Task> GetAll()
 		{

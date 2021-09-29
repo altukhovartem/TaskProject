@@ -22,6 +22,12 @@ namespace TaskProject.Models
 			context.SaveChanges();
 		}
 
+		public void Update(Task task)
+		{
+			context.Tasks.Update(task);
+			context.SaveChanges();
+		}
+
 		public IEnumerable<Task> GetAll()
 		{
 			return context.Tasks;

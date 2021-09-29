@@ -35,6 +35,16 @@ namespace TaskProject.Controllers
 			return View(task);
 		}
 
+		[HttpPost]
+		public IActionResult Details(Task task)
+		{
+			if (ModelState.IsValid)
+			{
+				_taskRepository.Update(task);
+			}
+			return View(task);
+		}
+
 		public IActionResult Create()
 		{
 			FindAllTasks();
