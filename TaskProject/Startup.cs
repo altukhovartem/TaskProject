@@ -52,7 +52,7 @@ namespace TaskProject
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{Controller=Home}/{Action=Index}/{Id?}");
+					pattern: "{Controller=Task}/{Action=List}/{Id?}");
 			});
 		}
 	}
