@@ -10,8 +10,10 @@
 	<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 </head>
 <body>
-	<h1>Project Task</h1>
-	<hr />
+	<a asp-controller="Task" asp-action="List" style="text-decoration:none; color:black;">
+		<h1>Project Task</h1>
+	</a>
+	<hr/>
 	<div>
 		@RenderBody()
 	</div>
