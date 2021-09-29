@@ -1,8 +1,8 @@
 ﻿@model TaskProject.Models.Task
 
 <form asp-action="Create" method="post" role="form">
-	<h4>Create a new task</h4>
-
+	<h2>Create a new task</h2>
+	<h3 class="message">@ViewBag.Message</h3>
 	<table border="0">
 		<tr>
 			<td class="right">
@@ -27,6 +27,11 @@
 		<tr>
 			<td colspan="2">
 				<button type="submit">Save</button>
+			</td>
+		</tr>
+		<tr>
+			<td >
+				<a asp-controller="Task" asp-action="List">Back to List</a>
 			</td>
 		</tr>
 	</table>

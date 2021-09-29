@@ -57,6 +57,7 @@ namespace TaskProject.Controllers
 			if (ModelState.IsValid)
 			{
 				_taskRepository.Create(task);
+				ViewBag.Message = "The task cretaed successfully";
 			}
 			FindAllTasks();
 			return View(task);
