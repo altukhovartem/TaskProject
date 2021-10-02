@@ -1,12 +1,13 @@
 ﻿@model TaskProject.Models.Task
 	<form asp-controller="Task" asp-action="Details" method="post">
+		<h2 class="message">@ViewBag.Message</h2> 
 		<table border="0">
 			<tr>
 				<td class="right">
 					<label asp-for="Id"></label>:
 				</td>
 				<td>
-					<input type="text" asp-for="Id" />
+					<input type="text" asp-for="Id" disabled="disabled"/>
 				</td>
 			</tr>
 			<tr>

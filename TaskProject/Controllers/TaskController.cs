@@ -41,6 +41,7 @@ namespace TaskProject.Controllers
 			if (ModelState.IsValid)
 			{
 				_taskRepository.Update(task);
+				ViewBag.Message = "The task updated successfully";
 			}
 			return View(task);
 		}
