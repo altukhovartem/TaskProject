@@ -27,6 +27,7 @@ namespace TaskProject.Controllers
 
 		public IActionResult Details(int id)
 		{
+			FindAllTasks();
 			Task task = _taskRepository.GetById(id);
 			if(task is null)
 			{
@@ -38,6 +39,7 @@ namespace TaskProject.Controllers
 		[HttpPost]
 		public IActionResult Details(Task task)
 		{
+			FindAllTasks();
 			if (ModelState.IsValid)
 			{
 				_taskRepository.Update(task);

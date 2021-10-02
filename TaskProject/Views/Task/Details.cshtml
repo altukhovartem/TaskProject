@@ -15,7 +15,9 @@
 					<label asp-for="Type"></label>:
 				</td>
 				<td>
-					<input type="text" asp-for="Type" />
+					<select asp-for="Type" asp-items=@ViewBag.ListOfTaskTypes>
+						<option value="@Model.Type"></option>
+					</select>
 				</td>
 			</tr>
 			<tr>
