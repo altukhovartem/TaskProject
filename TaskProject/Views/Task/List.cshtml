@@ -9,6 +9,7 @@
 		<th>@nameof(TaskProject.Models.Task.Type)</th>
 		<th>@nameof(TaskProject.Models.Task.Title)</th>
 		<th>@nameof(TaskProject.Models.Task.CreatedTime)</th>
+		<th>@nameof(TaskProject.Models.Task.Status)</th>
 	</tr>
 	@foreach (TaskProject.Models.Task task in @Model)
 	{
@@ -17,6 +18,7 @@
 			<td>@task.Type</td>
 			<td>@task.Title</td>
 			<td>@task.CreatedTime</td>
+			<td>@task.Status</td>
 		</tr>
 	}
 </table>

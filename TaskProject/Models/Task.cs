@@ -16,6 +16,9 @@ namespace TaskProject.Models
 		public string Title { get; set; }
 		[Display(Name = "Item Type")]
 		public string Type { get; set; }
+
+		public string Status { get; set; }
+
 		[Display(Name = "Created DateTime")]
 		public DateTime CreatedTime { get; set; }
 	}

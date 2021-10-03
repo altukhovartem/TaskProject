@@ -64,6 +64,7 @@ namespace TaskProject.Controllers
 		[HttpPost]
 		public IActionResult Create(Task task)
 		{
+			task.Status = "Open";
 			if (ModelState.IsValid)
 			{
 				_taskRepository.Create(task);

@@ -7,7 +7,7 @@
 					<label asp-for="Id"></label>:
 				</td>
 				<td>
-					<input type="text" asp-for="Id"/>
+					<input type="text" asp-for="Id" />
 				</td>
 			</tr>
 			<tr>
@@ -29,8 +29,16 @@
 				</td>
 			</tr>
 			<tr>
+				<td class="right">
+					<label asp-for="Status"></label>:
+				</td>
 				<td>
-					<button type="submit" formaction="/Task/Save">Save</button>
+					<input type="text" asp-for="Status" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="submit" asp-action="Save" asp-controller="Task" >Save</button>
 				</td>
 				<td>
 					<button type="submit" formaction="/Task/Delete">Delete</button>
@@ -41,6 +49,6 @@
 					<a asp-controller="Task" asp-action="List">Back to List</a>
 				</td>
 			</tr>
-			
+
 		</table>
 	</form>
