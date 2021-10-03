@@ -41,5 +41,10 @@ namespace TaskProject.Models
 		{
 			return	_tasks.Where(t => t.Id == Id).SingleOrDefault();
 		}
+
+		public void Delete(Task task)
+		{
+			_tasks.Remove(task);
+		}
 	}
 }

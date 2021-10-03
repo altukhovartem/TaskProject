@@ -7,7 +7,7 @@
 					<label asp-for="Id"></label>:
 				</td>
 				<td>
-					<input type="text" asp-for="Id" disabled="disabled"/>
+					<input type="text" asp-for="Id"/>
 				</td>
 			</tr>
 			<tr>
@@ -29,8 +29,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<button type="submit">Save</button>
+				<td>
+					<button type="submit" formaction="/Task/Save">Save</button>
+				</td>
+				<td>
+					<button type="submit" formaction="/Task/Delete">Delete</button>
 				</td>
 			</tr>
 			<tr>

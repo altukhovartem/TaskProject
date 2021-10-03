@@ -37,7 +37,7 @@ namespace TaskProject.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Details(Task task)
+		public IActionResult Save(Task task)
 		{
 			FindAllTasks();
 			if (ModelState.IsValid)
@@ -46,6 +46,13 @@ namespace TaskProject.Controllers
 				ViewBag.Message = "The task updated successfully";
 			}
 			return View(task);
+		}
+
+		[HttpPost]
+		public IActionResult Delete(Task task)
+		{
+			_taskRepository.Delete(task);
+			return RedirectToAction("List");
 		}
 
 		public IActionResult Create()

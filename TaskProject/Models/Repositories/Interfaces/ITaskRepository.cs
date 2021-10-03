@@ -8,5 +8,6 @@ namespace TaskProject.Models
 		Task GetById(int Id);
 		void Create(Task task);
 		void Update(Task task);
+		void Delete(Task task);
 	}
 }

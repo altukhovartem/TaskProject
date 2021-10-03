@@ -37,5 +37,11 @@ namespace TaskProject.Models
 		{
 			return	context.Tasks.FirstOrDefault(t => t.Id == Id);
 		}
+
+		public void Delete(Task task)
+		{
+			context.Tasks.Remove(task);
+			context.SaveChanges();
+		}
 	}
 }
