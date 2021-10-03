@@ -17,7 +17,7 @@ namespace TaskProject.Models
 		}
 		public void Create(Task task)
 		{
-			//task.Id = context.Tasks.Max(t => t.Id)+1;
+			task.CreatedTime = DateTime.Now;
 			context.Tasks.Add(task);
 			context.SaveChanges();
 		}
