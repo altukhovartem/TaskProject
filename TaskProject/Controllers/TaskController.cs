@@ -45,7 +45,7 @@ namespace TaskProject.Controllers
 				_taskRepository.Update(task);
 				ViewBag.Message = "The task updated successfully";
 			}
-			return View(task);
+			return View("Details", task);
 		}
 
 		[HttpPost]
