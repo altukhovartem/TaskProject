@@ -28,6 +28,7 @@ namespace TaskProject.Controllers
 		public IActionResult Details(int id)
 		{
 			FindAllTasks();
+			FindAllStatuses();
 			Task task = _taskRepository.GetById(id);
 			if(task is null)
 			{
@@ -64,7 +65,7 @@ namespace TaskProject.Controllers
 		[HttpPost]
 		public IActionResult Create(Task task)
 		{
-			task.Status = "Open";
+			task.Status = Status.New.ToString();
 			if (ModelState.IsValid)
 			{
 				_taskRepository.Create(task);
@@ -79,6 +80,12 @@ namespace TaskProject.Controllers
 			ViewBag.ListOfTaskTypes = _taskTypeRepository
 							.GetAll()
 							.Select(x => new SelectListItem() { Text = x.Name, Value = x.Name });
+		}
+
+		private void FindAllStatuses()
+		{
+			ViewBag.ListOfStatuses = Enum.GetNames(typeof(Status))
+							.Select(x => new SelectListItem() { Text = x, Value = x });
 		}
 	}
 }

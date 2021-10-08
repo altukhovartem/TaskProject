@@ -33,7 +33,9 @@
 					<label asp-for="Status"></label>:
 				</td>
 				<td>
-					<input type="text" asp-for="Status" />
+					<select asp-for="Status" asp-items=@ViewBag.ListOfStatuses >
+						<option>@Model.Status</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
