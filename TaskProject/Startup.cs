@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TaskProject.Models;
 using TaskProject.Models.EF;
+using TaskProject.Security;
 
 namespace TaskProject
 {
@@ -34,6 +35,14 @@ namespace TaskProject
 			services.AddSession();
 
 			services.AddControllersWithViews();
+
+			services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")));
+			services.AddIdentity<AppIdentityUser, AppIdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
+			services.ConfigureApplicationCookie(opt =>
+			{
+				opt.LoginPath = "/Security/SignIn";
+				opt.AccessDeniedPath = "/Security/AccessDenied";
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +56,9 @@ namespace TaskProject
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseRouting();
+
+			app.UseAuthentication();
+			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{

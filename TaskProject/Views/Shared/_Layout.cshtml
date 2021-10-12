@@ -13,9 +13,18 @@
 	<a asp-controller="Task" asp-action="List" style="text-decoration:none; color:black;">
 		<h1>Project Task</h1>
 	</a>
-	<hr/>
+	<hr />
 	<div>
 		@RenderBody()
 	</div>
+	<hr>
+	<hr>
+	@if (User.Identity.IsAuthenticated)
+	{
+		<h2>You are signed in as @User.Identity.Name</h2>
+		<form asp-controller="Security" asp-action="SignOut" method="post">
+			<button type="submit">Sign Out</button>
+		</form>
+	}
 </body>
 </html>

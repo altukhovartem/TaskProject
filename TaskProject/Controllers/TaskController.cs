@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using Task = TaskProject.Models.Task;
 
 namespace TaskProject.Controllers
 {
+	[Authorize(Roles = "Manager")]
 	public class TaskController : Controller
 	{
 		private readonly ITaskRepository _taskRepository;
