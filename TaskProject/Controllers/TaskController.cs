@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskProject.Models;
+using TaskProject.Security;
 using Task = TaskProject.Models.Task;
 
 namespace TaskProject.Controllers
@@ -15,11 +17,13 @@ namespace TaskProject.Controllers
 	{
 		private readonly ITaskRepository _taskRepository;
 		private readonly ITaskTypeRepository _taskTypeRepository;
+		private readonly UserManager<AppIdentityUser> _userManager;
 
-		public TaskController(ITaskRepository taskRepository, ITaskTypeRepository taskTypeRepository)
+		public TaskController(ITaskRepository taskRepository, ITaskTypeRepository taskTypeRepository, UserManager<AppIdentityUser> userManager)
 		{
 			this._taskRepository = taskRepository;
 			this._taskTypeRepository = taskTypeRepository;
+			this._userManager = userManager;
 		}
 		public IActionResult List()
 		{
@@ -68,6 +72,8 @@ namespace TaskProject.Controllers
 		public IActionResult Create(Task task)
 		{
 			task.Status = Status.New.ToString();
+			task.UserID = _userManager.GetUserId(User);
+
 			if (ModelState.IsValid)
 			{
 				_taskRepository.Create(task);

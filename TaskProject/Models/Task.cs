@@ -21,5 +21,6 @@ namespace TaskProject.Models
 
 		[Display(Name = "Created DateTime")]
 		public DateTime CreatedTime { get; set; }
+		public string UserID { get; set; }
 	}
 }
