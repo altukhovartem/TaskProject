@@ -27,7 +27,7 @@ namespace TaskProject.Controllers
 		}
 		public IActionResult List()
 		{
-			IEnumerable<Task> tasks = _taskRepository.GetAll();
+			IEnumerable<Task> tasks = _taskRepository.GetAll().Where(x=>x.UserID == _userManager.GetUserId(User));
 			return View(tasks);
 		}
 
